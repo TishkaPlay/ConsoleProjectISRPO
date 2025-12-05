@@ -70,5 +70,40 @@ namespace ConsoleProject
             board[row, col] = symbol;
             return true;
         }
+
+        //проверка победы
+        public bool CheckWin(char symbol)
+        {
+            //проверка строк
+            for (int row = 0; row < 3; row++)
+            {
+                if (board[row, 0] == symbol && 
+                    board[row, 1] == symbol &&
+                    board[row, 2] == symbol)
+                    return true;
+            }
+
+            //проверка столбцов
+            for (int col = 0; col < 3; col++)
+            {
+                if (board[col, 0] == symbol &&
+                    board[col, 1] == symbol &&
+                    board[col, 2] == symbol)
+                    return true;
+            }
+            
+            //проверка диагоналей
+            if (board[0, 0] == symbol && 
+                board[1, 1] == symbol && 
+                board[2, 2] == symbol)
+                return true;
+
+            if (board[0, 2] == symbol && 
+                board[1, 1] == symbol && 
+                board[2, 0] == symbol)
+                return true;
+
+            return false;
+        }
     }
 }
