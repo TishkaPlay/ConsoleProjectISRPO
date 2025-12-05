@@ -105,5 +105,18 @@ namespace ConsoleProject
 
             return false;
         }
+
+        public bool isFull()
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    if (board[row, col] == ' ')
+                        return false;
+                }
+            }
+            return true;
+        }
     }
 }
