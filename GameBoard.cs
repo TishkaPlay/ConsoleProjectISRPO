@@ -33,26 +33,28 @@ namespace ConsoleProject
         public void Show()
         {
             Console.WriteLine("=== Крестики-Нолики ===");
-            //номера столбцов
-            Console.WriteLine("    1   2   3");
-            //верхняя граница
-            Console.WriteLine("  +-----------+");
+            //номера столбцов и верхняя граница
+
+            Console.WriteLine("    1   2   3 ");
+            Console.WriteLine("  ╠═══╬═══╬═══╣");
 
             for (int row = 0; row < 3; row++)
             {
-                Console.WriteLine($"{row + 1} |");
+                Console.Write($"  ║");
                 for (int col = 0; col < 3; col++)
                 {
-                    Console.Write($" {board[row, col]} |");
-                }
-                Console.WriteLine();
+                    char cell = board[row, col];
+                    Console.Write(cell == ' ' ? "   " : $" {cell} ");
 
-                //разделить
+                    if (col < 2) 
+                        Console.Write("║");
+                }
+                Console.WriteLine($"║{row + 1}");
+
                 if (row < 2)
-                    Console.WriteLine("  +-----------+");
+                    Console.WriteLine("  ╠═══╬═══╬═══╣");
             }
-            //низ
-            Console.WriteLine("  +-----------+");
+            Console.WriteLine("  ╚═══╩═══╩═══╝");
         }
 
         //ход
